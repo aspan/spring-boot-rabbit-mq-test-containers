@@ -20,6 +20,7 @@
         <awaitility.version>4.2.0</awaitility.version>
         <java.version>17</java.version>
         <maven-failsafe-plugin.version>3.0.0-M7</maven-failsafe-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <testcontainers-bom.version>1.17.3</testcontainers-bom.version>
     </properties>
 
@@ -137,7 +138,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${maven-failsafe-plugin.version}</version>
                     </plugin>
                 </plugins>
             </build>
