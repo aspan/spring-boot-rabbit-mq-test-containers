@@ -3,7 +3,7 @@ package biz.asplund.messaging;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.awaitility.Awaitility.await;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.atMostOnce;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.util.Map;
@@ -45,7 +45,7 @@ public class MessageSenderIT {
         messageSender.broadcast(BROADCAST_MESSAGE);
         await().atMost(5, SECONDS)
                .untilAsserted(
-                       () -> verify(messageReceiver, atMostOnce())
+                       () -> verify(messageReceiver, times(1))
                                .receiveMessageFromFanout(eq(BROADCAST_MESSAGE)));
     }
 
@@ -54,7 +54,7 @@ public class MessageSenderIT {
         messageSender.send(DIRECT_MESSAGE);
         await().atMost(5, SECONDS)
                .untilAsserted(
-                       () -> verify(messageReceiver, atMostOnce())
+                       () -> verify(messageReceiver, times(1))
                                .receiveMessageFromDirect(eq(DIRECT_MESSAGE)));
     }
 
@@ -63,7 +63,7 @@ public class MessageSenderIT {
         messageSender.sendError(TOPIC_MESSAGE);
         await().atMost(5, SECONDS)
                .untilAsserted(
-                       () -> verify(messageReceiver, atMostOnce())
+                       () -> verify(messageReceiver, times(1))
                                .receiveMessageFromTopic(eq(TOPIC_MESSAGE)));
 
     }
