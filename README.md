@@ -6,4 +6,4 @@ The examples have been modified to use the latest versions of Spring Boot (3.0.0
 The tests have been migrated to JUnit 5 with `@SpyBean` and Mockito verify as well as
 the specialized test container `RabbitMQContainer` instead of a generic container. 
 
-Run the project with `./mvnw clean verify -Pintegration-test`
+Build the project with `./mvnw clean verify -Pintegration-test`
